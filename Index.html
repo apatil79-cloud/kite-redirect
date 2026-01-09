@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kite Connect Redirect</title>
+</head>
+<body>
+  <h2>Kite Connect Redirect Page</h2>
+  <p id="output">Waiting for request_token...</p>
+
+  <script>
+    // Extract query parameters from the URL
+    const params = new URLSearchParams(window.location.search);
+    const requestToken = params.get("request_token");
+    const action = params.get("action");
+
+    if (requestToken) {
+      document.getElementById("output").innerText =
+        "Your request_token is: " + requestToken + "\nAction: " + action;
+      console.log("Request token:", requestToken);
+    } else {
+      document.getElementById("output").innerText =
+        "No request_token found in URL.";
+    }
+  </script>
+</body>
+</html>
